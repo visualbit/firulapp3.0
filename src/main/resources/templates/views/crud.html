@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>CRUD</title>
+</head>
+<body>
+<nav th:replace="components/navbar :: nav_bar"></nav>
+<div class="container">
+    <div class="row my-5">
+        <div class="col-3">
+            <h4>CRUD Veterinarias</h4>
+        </div>
+        <div class="col-9 d-flex flex-row-reverse">
+            <a th:href="@{/veterinarias/crear/}" class="btn btn-success">Agregar Veterinarias</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table" >
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Especialidad</th>
+                    <th scope="col">Propietario</th>
+                    <th scope="col">Horario</th>
+                    <th scope="col">Rango de precios</th>
+                    <th scope="col">Servicios</th>
+                    <th scope="col">Fotos</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Más información</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="vet : ${veterinarias}" >
+                    <td th:text="${vet.idVeterinaria}"></td>
+                    <td th:text="${vet.nombre}"></td>
+                    <td th:text="${vet.especialidad}"></td>
+                    <td th:text="${vet.propietario}"></td>
+                    <td th:text="${vet.horario}"></td>
+                    <td th:text="${vet.rangoPrecios}"></td>
+                    <td th:text="${vet.servicios}"></td>
+                    <td>
+
+                        <img th:src="${vet.fotos}" class="img-thumbnail" alt="${vet.nombre}">
+                    </td>
+                    <td th:text="${vet.ciudad}"></td>
+                    <td th:text="${vet.telefono}"></td>
+                    <td th:text="${vet.masInformacion}"></td>
+
+                    <td>
+
+                        <a th:href="@{/formulario/formVeterinaria(idVet=${vet.idVeterinaria})}" class="btn btn-warning">Editar</a>
+                        <a th:href="@{/eliminar/veterinaria(idVet=${vet.idVeterinaria})}" class="btn btn-danger">Eliminar</a>
+                    </td>
+
+                </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
