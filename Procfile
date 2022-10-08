@@ -1,1 +1,1 @@
-web: java -jar -Dserver.port=$PORT target/firulapp-0.0.1-SNAPSHOT.jar
+web: java -jar out/artifacts/firulapp_jar/firulapp.jar
