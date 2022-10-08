@@ -1,14 +1,17 @@
+
 package com.firulapp.firulapp.domain;
 
-import javax.persistence.*;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Veterinaria {
-
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
     private Integer idVeterinaria;
     private String nombre;
     private String especialidad;
@@ -16,12 +19,16 @@ public class Veterinaria {
     private String horario;
     private String rangoPrecios;
     private String servicios;
-    private String calificaciones;
     private String fotos;
     private String ciudad;
+    private String telefono;
+    private String masInformacion;
+
+    public Veterinaria() {
+    }
 
     public Integer getIdVeterinaria() {
-        return idVeterinaria;
+        return this.idVeterinaria;
     }
 
     public void setIdVeterinaria(Integer idVeterinaria) {
@@ -29,7 +36,7 @@ public class Veterinaria {
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {
@@ -37,7 +44,7 @@ public class Veterinaria {
     }
 
     public String getEspecialidad() {
-        return especialidad;
+        return this.especialidad;
     }
 
     public void setEspecialidad(String especialidad) {
@@ -45,7 +52,7 @@ public class Veterinaria {
     }
 
     public String getPropietario() {
-        return propietario;
+        return this.propietario;
     }
 
     public void setPropietario(String propietario) {
@@ -53,7 +60,7 @@ public class Veterinaria {
     }
 
     public String getHorario() {
-        return horario;
+        return this.horario;
     }
 
     public void setHorario(String horario) {
@@ -61,7 +68,7 @@ public class Veterinaria {
     }
 
     public String getRangoPrecios() {
-        return rangoPrecios;
+        return this.rangoPrecios;
     }
 
     public void setRangoPrecios(String rangoPrecios) {
@@ -69,23 +76,15 @@ public class Veterinaria {
     }
 
     public String getServicios() {
-        return servicios;
+        return this.servicios;
     }
 
     public void setServicios(String servicios) {
         this.servicios = servicios;
     }
 
-    public String getCalificaciones() {
-        return calificaciones;
-    }
-
-    public void setCalificaciones(String calificaciones) {
-        this.calificaciones = calificaciones;
-    }
-
     public String getFotos() {
-        return fotos;
+        return this.fotos;
     }
 
     public void setFotos(String fotos) {
@@ -93,10 +92,30 @@ public class Veterinaria {
     }
 
     public String getCiudad() {
-        return ciudad;
+        return this.ciudad;
     }
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    public String getTelefono() {
+        return this.telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getMasInformacion() {
+        return this.masInformacion;
+    }
+
+    public void setMasInformacion(String masInformacion) {
+        this.masInformacion = masInformacion;
+    }
+
+    public String toString() {
+        return "Veterinaria{idVeterinaria=" + this.idVeterinaria + ", nombre='" + this.nombre + "', especialidad='" + this.especialidad + "', propietario='" + this.propietario + "', horario='" + this.horario + "', rangoPrecios='" + this.rangoPrecios + "', servicios='" + this.servicios + "', fotos='" + this.fotos + "', ciudad='" + this.ciudad + "', telefono='" + this.telefono + "', masInformacion='" + this.masInformacion + "'}";
     }
 }
