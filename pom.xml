@@ -13,9 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>firulapp</name>
 	<description>Aplicación de veterinarias</description>
-	<properties>
-		<java.version>18</java.version>
-	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -82,6 +80,8 @@
 			</plugin>
 
 		</plugins>
+
+
 	</build>
 
 
