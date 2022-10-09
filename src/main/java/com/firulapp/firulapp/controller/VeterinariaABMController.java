@@ -21,18 +21,19 @@ public class VeterinariaABMController {
         this.veterinariaService = veterinariaService;
     }
 
-    @RequestMapping({"/veterinarias/crear"})
+   @RequestMapping({"/veterinarias/crear"})
     public String mostrarFormAlta(Model model) {
         model.addAttribute("veterinaria", new Veterinaria());
         return "views/formulario/formVeterinaria";
     }
 
-    @PostMapping({"/veterinarias/guardar"})
-    public String guardar(Veterinaria veterinaria) {
-        System.out.println(veterinaria);
-        this.veterinariaService.guardar(veterinaria);
-        return "redirect:/";
-    }
+   /* @RequestMapping({"/veterinarias/editar"})
+    public String mostrarFormEditar(Model model, String id) {
+        model.addAttribute("veterinaria", veterinariaService.findById(id));
+        return "views/formulario/formVeterinaria";
+    }*/
+
+
 
     @GetMapping({"/crud"})
     public String crudVeterinarias(Model model) {
@@ -46,20 +47,24 @@ public class VeterinariaABMController {
         }
     }
 
-    @GetMapping({"/formulario/formVeterinaria/{id}"})
-    public String formVeterinaria(Model model, @PathVariable("id") String id) {
-        try {
-            if (id == "") {
+    /*@GetMapping({"/veterinarias/crear/{id}"})
+    public String mostrarFormAlta(Model model, @PathVariable("id") String id) {
+
+            if (id == null) {
                 model.addAttribute("veterinaria", new Veterinaria());
             } else {
                 model.addAttribute("veterinaria", this.veterinariaService.findById(id));
             }
 
             return "views/formulario/formVeterinaria";
-        } catch (Exception var4) {
-            model.addAttribute("error", var4.getMessage());
-            return "error";
-        }
+
+    }
+
+    @PostMapping({"/veterinarias/guardar"})
+    public String guardar(Veterinaria veterinaria) {
+        System.out.println(veterinaria);
+        this.veterinariaService.guardar(veterinaria);
+        return "redirect:/";
     }
 
     @PostMapping({"/formulario/formVeterinaria/{id}"})
@@ -70,5 +75,5 @@ public class VeterinariaABMController {
             this.veterinariaService.guardar(veterinaria);
             return "redirect:/crud";
         }
-    }
+    }*/
 }
